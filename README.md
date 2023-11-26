@@ -1,7 +1,15 @@
+```
+Developed by: Divya M
+RegisterNumber: 23013162
+```
+
 # Exp-6-Synchornous-counters - up counter and down counter 
-### AIM: To implement 4 bit up and down counters and validate  functionality.
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
+### AIM: 
+To implement 4 bit up and down counters and validate  functionality.
+### HARDWARE REQUIRED: 
+– PC, Cyclone II , USB flasher
+### SOFTWARE REQUIRED: 
+Quartus prime
 ### THEORY 
 
 ## UP COUNTER 
@@ -46,43 +54,80 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+1.Set the input as clock.
+
+2.Register the output of 4 bit.
+
+3.Use Posedge on the input clock.
+
+4.For Up counter use AND and OR gates to declare the value of each bit.
+
+5.For Down counter use AND, OR and NOT gates to declare the value of each bit.
+
+6.End the module.
 
 
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+```
+module upcounter1(clk,A);
+input clk;
+output reg [0:3]A;
+always@(posedge clk)
+begin
+A[0]=((A[1])&(A[2])&(A[3]))^A[0];
+A[1]=((A[2])&(A[3]))^A[1];
+A[2]=((A[3]))^A[2];
+A[3]=1^A[3];
+end 
+endmodule
+```
+```
+module downcounter(clk,A);
+input clk;
+output reg [0:3]A;
+always@(posedge clk)
+begin
+A[0]=((~A[1])&(~A[2])&(~A[3]))^A[0];
+A[1]=((~A[2])&(~A[3]))^A[1];
+A[2]=((~A[3]))^A[2];
+A[3]=1^A[3];
+end
+endmodule
+```
 */
 
 
 
+### RTL LOGIC UP COUNTER AND DOWN COUNTER: 
+# UP COUNTER:
 
+![Screenshot (199)](https://github.com/DivyaMunirathnamm/Exp-7-Synchornous-counters-/assets/147474097/01f759e4-d93e-47b9-b91b-951691c8d6df)
 
+# DOWN COUNTER:
 
-### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+![Screenshot (200)](https://github.com/DivyaMunirathnamm/Exp-7-Synchornous-counters-/assets/147474097/18231ca8-5eae-4417-9a87-0a618cc8cf9e)
 
-
-
-
-
-
-
-
-
-### TIMING DIGRAMS FOR COUNTER  
-
-
+### TIMING DIGRAMS FOR COUNTER:
+# UP COUNTER:
+![image](https://github.com/DivyaMunirathnamm/Exp-7-Synchornous-counters-/assets/147474097/9640d868-18fe-4c4c-a2ff-eb5b1df63147)
+# DOWN COUNTER:
+![image](https://github.com/DivyaMunirathnamm/Exp-7-Synchornous-counters-/assets/147474097/8b0a478d-78bb-46ae-98ec-b38519b8206d)
 
 
 
 ### TRUTH TABLE 
+# UP COUNTER:
+
+![image](https://github.com/DivyaMunirathnamm/Exp-7-Synchornous-counters-/assets/147474097/24dac406-54e2-4b5c-8098-378808f7889f)
 
 
+# DOWN COUNTER:
+
+![image](https://github.com/DivyaMunirathnamm/Exp-7-Synchornous-counters-/assets/147474097/95964ca9-7e83-4146-8c95-3e564601af7e)
 
 
-
-
-### RESULTS 
+### RESULTS:
+Thus the program has been edxecuted successfully.
